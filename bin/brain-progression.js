@@ -18,21 +18,21 @@ const brainProgression = () => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   console.log('What number is missing in the progression?');
-  let correctAnswers = 0;
-  while (correctAnswers < 3) { 
+  let correctAnswer = 0;
+  while (correctAnswer < 3) { 
     const { progression, hiddenNumber } = generateArithmeticProgression();
     console.log('Question:', progression.join(' '));
     const userAnswer = Number(readlineSync.question('Your answer: '));
     if (userAnswer === hiddenNumber) {
       console.log('Correct!');
-      correctAnswers++;
+      correctAnswer++;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${hiddenNumber}'.`);
       console.log(`Let's try again, ${name}!`);
       break;
     }
   }
-  if (correctAnswers === 3) {
+  if (correctAnswer === 3) {
     console.log(`Congratulations, ${name}!`);
   }
 }

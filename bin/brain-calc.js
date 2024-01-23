@@ -34,7 +34,7 @@ const brainCalc = () => {
     const correctAnswer = calculateExpression(num1, num2, operation);
     console.log(`Question: ${num1} ${operation} ${num2}`);
     const userAnswer = Number(readlineSync.question('Your answer: '));
-    if (userAnswer === correctAnswer) {
+    if (correctAnswer === userAnswer) {
       console.log('Correct!');
       correctAnswersCount += 1;
     } else {
