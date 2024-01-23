@@ -5,9 +5,9 @@ const isEven = (num) => num % 2 === 0;
 
 const generateRandomNumber = () => Math.floor(Math.random() * 100);
 
-const playGame = async () => {
+const playGame = () => {
   console.log('Welcome to the Brain Games!');
-  const name = await readlineSync.prompt('May I have your name? ');
+  const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
