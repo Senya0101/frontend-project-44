@@ -3,6 +3,9 @@ import readlineSync from 'readline-sync';
 
 const isEven = (num) => num % 2 === 0;
 const generateRandomNumber = () => Math.floor(Math.random() * 100);
+const getUserAnswer = () => {
+  return readlineSync.question('Your answer: ').toLowerCase();
+};
 const playGame = () => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
@@ -12,9 +15,10 @@ const playGame = () => {
   while (correctAnswersCount < 3) {
     const question = generateRandomNumber();
     console.log(`Question: ${question}`);
-    const userAnswer = readlineSync.question('Your answer: ');
-    if ((isEven(question) && userAnswer.toLowerCase() === 'yes') ||
-        (!isEven(question) && userAnswer.toLowerCase() === 'no')) {
+    const userAnswer = getUserAnswer();
+
+    if ((isEven(question) && userAnswer === 'yes') ||
+        (!isEven(question) && userAnswer === 'no')) {
       console.log('Correct!');
       correctAnswersCount += 1;
     } else {
