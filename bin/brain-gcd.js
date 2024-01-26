@@ -27,7 +27,7 @@ const brainGcd = () => {
   console.log(`Congratulations, ${name}!`);
 }
 
-function generateQuestions(count) {
+const generateQuestions = (count) => {
   const questions = [];
   for (let i = 0; i < count; i++) {
     const num1 = Math.floor(Math.random() * 100) + 1;
@@ -37,7 +37,7 @@ function generateQuestions(count) {
   return questions;
 }
 
-function findGCD(num1, num2) {
+const findGCD = (num1, num2) => {
   if (num2 === 0) {
     return num1;
   }

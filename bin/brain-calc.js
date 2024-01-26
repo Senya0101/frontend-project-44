@@ -1,50 +1,44 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 
-const generateRandomNumber = () => Math.floor(Math.random() * 100);
-const generateRandomOperation = () => {
-  const operations = ['+', '-', '*'];
-  const randomIndex = Math.floor(Math.floor(Math.random() * 3));
-  return operations[randomIndex];
-};
-const calculateExpression = (num1, num2, operation) => {
-  switch (operation) {
-    case '+':
-      return num1 + num2;
-    case '-':
-      return num1 - num2;
-    case '*':
-      return num1 * num2;
-    default:
-      return null;
-  }
-};
+const generateRandomExpression = () => {
+  const operators = ['+', '-', '*'];
+  const operator = operators[Math.floor(Math.random() * operators.length)];
+  const num1 = Math.floor(Math.random() * 30);
+  const num2 = Math.floor(Math.random() * 30);
+  return `${num1} ${operator} ${num2}`;
+}
 
-const brainCalc = () => {
+const calculate = (expression) => {
+  return eval(expression); 
+}
+
+const playCalculatorGame = () => {
   console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
   console.log('What is the result of the expression?');
+
   let correctAnswersCount = 0;
-  const maxRounds = 3;
-  while (correctAnswersCount < maxRounds) {
-    const num1 = generateRandomNumber();
-    const num2 = generateRandomNumber();
-    const operation = generateRandomOperation();
-    const correctAnswer = calculateExpression(num1, num2, operation);
-    console.log(`Question: ${num1} ${operation} ${num2}`);
-    const userAnswer = Number(readlineSync.question('Your answer: '));
-    if (correctAnswer === userAnswer) {
+
+  for (let i = 0; i < 3; i++) {
+    const expression = generateRandomExpression();
+    const correctAnswer = calculate(expression);
+
+    console.log(`Question: ${expression}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+
+    if (Number(userAnswer) === correctAnswer) {
       console.log('Correct!');
-      correctAnswersCount += 1;
+      correctAnswersCount++;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      console.log(`Let's try again, ${name}!`);
-      break;
+      console.log("Let's try again!");
+      return;
     }
   }
-  if (correctAnswersCount === maxRounds) {
-    console.log(`Congratulations, ${name}!`);
-  }
-};
-brainCalc();
+
+  console.log(`Congratulations, ${userName}!`);
+}
+
+playCalculatorGame();

@@ -15,8 +15,8 @@ const generateArithmeticProgression = () => {
 }  
 const brainProgression = () => {
   console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
   console.log('What number is missing in the progression?');
   let correctAnswer = 0;
   while (correctAnswer < 3) { 
@@ -28,12 +28,12 @@ const brainProgression = () => {
       correctAnswer++;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${hiddenNumber}'.`);
-      console.log(`Let's try again, ${name}!`);
+      console.log(`Let's try again, ${userName}!`);
       break;
     }
   }
   if (correctAnswer === 3) {
-    console.log(`Congratulations, ${name}!`);
+    console.log(`Congratulations, ${userName}!`);
   }
 }
 brainProgression();

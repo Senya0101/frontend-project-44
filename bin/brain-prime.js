@@ -12,7 +12,7 @@ const playGame = () => {
   console.log(`Hello, ${name}!`);
   let correctAnswersCount = 0;
   while (correctAnswersCount < 3) {
-    const number = Math.floor(Math.random() * 100) + 1;
+    const number = Math.floor(Math.random() * 30 ) + 1;
     console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
     console.log(`Question: ${number}`);
     const answer = readlineSync.question('Your answer: ');

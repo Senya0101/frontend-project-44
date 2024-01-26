@@ -1,31 +1,37 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 
-const isEven = (num) => num % 2 === 0;
-const generateRandomNumber = () => Math.floor(Math.random() * 100);
-const getUserAnswer = () => {
-  return readlineSync.question('Your answer: ').toLowerCase();
-};
-const playGame = () => {
-  console.log("Welcome to the Brain Games!");
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  let correctAnswersCount = 0;
-  while (correctAnswersCount < 3) {
-    const question = generateRandomNumber();
-    console.log(`Question: ${question}`);
-    const userAnswer = getUserAnswer();
+const isEven = (number) => {
+  return number % 2 === 0;
+}
 
-    if ((isEven(question) && userAnswer === 'yes') ||
-        (!isEven(question) && userAnswer === 'no')) {
+const playEvenGame = () => {
+  console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);``
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  let correctAnswersCount = 0;
+
+  while (correctAnswersCount < 3) {
+    const randomNumber = Math.floor(Math.random() * 100);
+    const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
+
+    console.log(`Question: ${randomNumber}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+
+    if (userAnswer.toLowerCase() === correctAnswer) {
       console.log('Correct!');
-      correctAnswersCount += 1;
+      correctAnswersCount++;
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${isEven(question) ? 'no' : 'yes'}'.`);
-      console.log(`Let's try again, ${name}!`);
-      correctAnswersCount = 0;
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log("Let's try again!");
+      break; 
     }
   }
-  console.log(`Congratulations, ${name}!`);
-};
-playGame();
+
+  if (correctAnswersCount === 3) {
+    console.log(`Congratulations, ${userName}!`);
+  }
+}
+
+playEvenGame();
