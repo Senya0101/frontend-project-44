@@ -13,35 +13,35 @@ const brainGcd = () => {
     const correctAnswer = String(findGCD(parseInt(num1), parseInt(num2)));
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-
+  
     if (userAnswer === correctAnswer) {
       console.log('Correct!');
       correctAnswersCount++;
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
       return;
     }
   }
-
+  
   console.log(`Congratulations, ${name}!`);
-}
+};
 
 const generateQuestions = (count) => {
   const questions = [];
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < count; i += 1) {
     const num1 = Math.floor(Math.random() * 100) + 1;
     const num2 = Math.floor(Math.random() * 100) + 1;
     questions.push(`${num1} ${num2}`);
   }
   return questions;
-}
+};
 
 const findGCD = (num1, num2) => {
   if (num2 === 0) {
     return num1;
   }
   return findGCD(num2, num1 % num2);
-}
+};
 
 brainGcd();
