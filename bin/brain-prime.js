@@ -31,6 +31,7 @@ const playGame = () => {
       correctAnswersCount += 1;
     } else {
       console.log(`Sorry, '${answer}' is wrong answer ;(. Correct answer was '${isPrime(number) ? 'yes' : 'no'}'.`);
+      break;
     }
   }
   console.log(`Congratulations, ${name}!`);

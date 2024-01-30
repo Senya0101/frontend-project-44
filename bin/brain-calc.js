@@ -7,10 +7,10 @@ const generateRandomExpression = () => {
   const num1 = Math.floor(Math.random() * 30);
   const num2 = Math.floor(Math.random() * 30);
   return `${num1} ${operator} ${num2}`;
-}
+};
 
-const calculate = (expression) => {
-  return eval(expression); 
+function calculate(expression) {
+  return eval(expression);
 }
 
 const playCalculatorGame = () => {
@@ -21,7 +21,7 @@ const playCalculatorGame = () => {
 
   let correctAnswersCount = 0;
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i += 1) {
     const expression = generateRandomExpression();
     const correctAnswer = calculate(expression);
 
@@ -30,7 +30,7 @@ const playCalculatorGame = () => {
 
     if (Number(userAnswer) === correctAnswer) {
       console.log('Correct!');
-      correctAnswersCount++;
+      correctAnswersCount += correctAnswersCount + 1;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log("Let's try again!");
@@ -39,6 +39,6 @@ const playCalculatorGame = () => {
   }
 
   console.log(`Congratulations, ${userName}!`);
-}
+};
 
 playCalculatorGame();
