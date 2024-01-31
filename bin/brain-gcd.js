@@ -1,44 +1,41 @@
 #!/usr/bin/env node
+
 import readlineSync from 'readline-sync';
 
-const generateQuestions = (count) => {
-  const questions = [];
-  for (let i = 0; i < count; i += 1) {
-    const num1 = Math.floor(Math.random() * 100) + 1;
-    const num2 = Math.floor(Math.random() * 100) + 1;
-    questions.push(`${num1} ${num2}`);
+function gcd(a, b) {
+  if (b === 0) {
+    return a;
   }
-  return questions;
-};
-
-const findGCD = (num1, num2) => {
-  if (num2 === 0) {
-    return num1;
-  }
-  return findGCD(num2, num1 % num2);
-};
+  return gcd(b, a % b);
+}
 
 const brainGcd = () => {
   console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
   console.log('Find the greatest common divisor of given numbers.');
-  const questions = generateQuestions(3);
-  let correctAnswersCount = 0;
-  for (const question of questions) {
-    const [num1, num2] = question.split(' ');
-    const correctAnswer = String(findGCD(parseInt(num1), parseInt(num2)));
-    console.log(`Question: ${question}`);
-    const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer === correctAnswer) {
+
+  let correct = 0;
+
+  while (correct < 3) {
+    const number1 = Math.floor(Math.random() * 50) + 1;
+    const number2 = Math.floor(Math.random() * 50) + 1;
+    const correctAnswer = gcd(number1, number2);
+
+    console.log(`Question: ${number1} ${number2}`);
+    const zxc = readlineSync.question('Your answer: ');
+
+    if (Number(zxc) === correctAnswer) {
       console.log('Correct!');
-      correctAnswersCount += 1;
+      correct += 1;
     } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      console.log(`Let's try again, ${name}!`);
+      console.log(`'${zxc}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${userName}!`);
       return;
     }
   }
+
+  console.log(`Congratulations, ${userName}!`);
 };
 
 brainGcd();
