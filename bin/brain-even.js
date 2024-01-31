@@ -24,7 +24,7 @@ const playEvenGame = () => {
       correctAnswersCount += 1;
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      console.log("Let's try again!");
+      console.log(`Let's try again, ${userName}!`);
       break;
     }
   }
