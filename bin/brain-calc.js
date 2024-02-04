@@ -34,6 +34,7 @@ const playCalculatorGame = () => {
   console.log(`Hello, ${userName}!`);
   for (let i = 0; i < 3; i += 1) {
     const expression = generateRandomExpression();
+    console.log(`What is the result of the expression?`);
     console.log(`Question: ${expression}`);
     const userAnswer = readlineSync.question('Your answer: ');
     let correctAnswer = calculate(expression).toString();
