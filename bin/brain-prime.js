@@ -18,8 +18,8 @@ const isPrime = (num) => {
 
 const playGame = () => {
   console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
   let correctAnswersCount = 0;
   while (correctAnswersCount < 3) {
     const number = Math.floor(Math.random() * 30) + 1;
@@ -31,11 +31,11 @@ const playGame = () => {
       correctAnswersCount += 1;
     } else {
       console.log(`Sorry, '${answer}' is wrong answer ;(. Correct answer was '${isPrime(number) ? 'yes' : 'no'}'.`);
-      console.log(`Let's try again, ${name}!`);
+      console.log(`Let's try again, ${userName}!`);
       break;
     }
   }
-  console.log(`Congratulations, ${name}!`);
+  console.log(`Congratulations, ${userName}!`);
 };
 
 playGame();
