@@ -46,7 +46,7 @@ const playCalculatorGame = () => {
       return;
     }
   }
-  console.log(`Congratulations, ${userName}! You've answered all questions correctly!`);
+  console.log(`Congratulations, ${userName}!`);
 };
 
 playCalculatorGame();
