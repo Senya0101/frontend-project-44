@@ -15,8 +15,8 @@ const brainGcd = () => {
   console.log(`Hello, ${userName}!`);
   console.log('Find the greatest common divisor of given numbers.');
   for (let correct = 0; correct < 3; correct += 1) {
-    const number1 = Math.floor(Math.random() * 50) + 1;
-    const number2 = Math.floor(Math.random() * 50) + 1;
+    const number1 = Math.floor(Math.random() * 50);
+    const number2 = Math.floor(Math.random() * 50);
     const correctA = gcd(number1, number2);
     console.log(`Question: ${number1} ${number2}`);
     const userAnswer = readlineSync.question('Your answer: ');
