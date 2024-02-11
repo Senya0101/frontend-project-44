@@ -10,28 +10,25 @@ const playEvenGame = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  let correctAnswersCount = 0;
-
-  while (correctAnswersCount < 3) {
+  for (let i = 0; i < 3; i += 1) {
     const randomNumber = Math.floor(Math.random() * 100);
-    const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
-
+    let correct;
+    if (isEven(randomNumber)) {
+      correct = 'yes';
+    } else {
+      correct = 'no';
+    }
     console.log(`Question: ${randomNumber}`);
     const userAnswer = readlineSync.question('Your answer: ');
-
-    if (userAnswer.toLowerCase() === correctAnswer) {
+    if (userAnswer.toLowerCase() === correct.toLowerCase()) {
       console.log('Correct!');
-      correctAnswersCount += 1;
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`'${userAnswer}' is the wrong answer ;(. Correct answer was '${correct}'.`);
       console.log(`Let's try again, ${userName}!`);
-      break;
+      return;
     }
   }
-
-  if (correctAnswersCount === 3) {
-    console.log(`Congratulations, ${userName}!`);
-  }
+  console.log(`Congratulations, ${userName}!`);
 };
 
 playEvenGame();

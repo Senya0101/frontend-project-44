@@ -16,26 +16,25 @@ const isPrime = (num) => {
   return true;
 };
 
-const playGame = () => {
+const playPrimeGame = () => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-  let correctAnswersCount = 0;
-  while (correctAnswersCount < 3) {
-    const number = Math.floor(Math.random() * 30) + 1;
-    console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+
+  for (let i = 0; i < 3; i += 1) {
+    const number = Math.floor(Math.random() * 30);
     console.log(`Question: ${number}`);
     const answer = readlineSync.question('Your answer: ');
     if ((answer === 'yes' && isPrime(number)) || (answer === 'no' && !isPrime(number))) {
       console.log('Correct!');
-      correctAnswersCount += 1;
     } else {
       console.log(`Sorry, '${answer}' is wrong answer ;(. Correct answer was '${isPrime(number) ? 'yes' : 'no'}'.`);
       console.log(`Let's try again, ${userName}!`);
-      break;
+      return;
     }
   }
   console.log(`Congratulations, ${userName}!`);
 };
 
-playGame();
+playPrimeGame();
