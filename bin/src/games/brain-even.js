@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 
- export function isEven(number) {
+export function isEven(number) {
   return number % 2 === 0;
 }
 
@@ -31,4 +31,4 @@ export const playEvenGame = () => {
   console.log(`Congratulations, ${userName}!`);
 };
 
-export default { playEvenGame, isEven};
+export default { playEvenGame, isEven };
