@@ -3,7 +3,7 @@ import readlineSync from 'readline-sync';
 import userName from '../brain-games.js';
 import generateRandomNumber from './logic/randomNumberGeneration.js';
 import isPrime from './logic/isPrime.js';
-import checkingАnswerPrime from './logic/primeCheckingАnswer.js';
+import checkingАnswer from './logic/checkingАnswer.js';
 
 const playPrimeGame = () => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
@@ -12,7 +12,7 @@ const playPrimeGame = () => {
     console.log(`Question: ${randomNumber}`);
     const userAnswer = readlineSync.question('Your answer: ');
     const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no';
-    if (!checkingАnswerPrime(userAnswer, correctAnswer)) {
+    if (!checkingАnswer(userAnswer, correctAnswer)) {
       return;
     }
   }
