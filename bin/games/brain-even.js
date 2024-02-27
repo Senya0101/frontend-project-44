@@ -1,24 +1,11 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import userName from '../brain-games.js';
-import generateRandomNumber from '../src/randomNumberGeneration.js'
+import generateRandomNumber from './logic/randomNumberGeneration.js';
+import checkingАnswer from './logic/evencheckingАnswer.js';
+import isEven from './logic/isEven.js';
 
-export function isEven(number) {
-  return number % 2 === 0;
-}
-
-export const checkingАnswer = (userAnswer, correct) => {
-  if (userAnswer.toLowerCase() === correct.toLowerCase()) {
-    console.log('Correct!');
-    return true;
-  } else {
-    console.log(`'${userAnswer}' is the wrong answer ;(. Correct answer was '${correct}'.`);
-    console.log(`Let's try again, ${userName}!`);
-    return false;
-  }
-};
-
-export const playEvenGame = () => {
+const playEvenGame = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   for (let i = 0; i < 3; i += 1) {
     const randomNumber = generateRandomNumber();
@@ -32,4 +19,4 @@ export const playEvenGame = () => {
   console.log(`Congratulations, ${userName}!`);
 };
 
-export default { playEvenGame, isEven, checkingАnswer };
+export default playEvenGame;
