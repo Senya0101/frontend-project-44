@@ -2,7 +2,7 @@
 import readlineSync from 'readline-sync';
 import userName from '../brain-games.js';
 import generateRandomNumber from './logic/randomNumberGeneration.js';
-import checkingАnswer from './logic/evencheckingАnswer.js';
+import checkingАnswerEven from './logic/evencheckingАnswer.js';
 import isEven from './logic/isEven.js';
 
 const playEvenGame = () => {
@@ -12,7 +12,7 @@ const playEvenGame = () => {
     const correct = isEven(randomNumber) ? 'yes' : 'no';
     console.log(`Question: ${randomNumber}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (!checkingАnswer(userAnswer, correct)) {
+    if (!checkingАnswerEven(userAnswer, correct)) {
       return;
     }
   }

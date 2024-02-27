@@ -2,7 +2,7 @@
 import readlineSync from 'readline-sync';
 import userName from '../brain-games.js';
 import calculate from './logic/calc2.js';
-import checkingАnswer from './logic/evencheckingАnswer.js';
+import checkingАnswerCalc from './logic/calcCheckingАnswer.js';
 import randomExpression from './logic/calculate.js';
 
 const playCalcGame = () => {
@@ -12,7 +12,7 @@ const playCalcGame = () => {
     console.log(`Question: ${expression}`);
     const answerUser = readlineSync.question('Your answer: ');
     const correct = calculate(expression).toString();
-    if (!checkingАnswer(answerUser, correct)) {
+    if (!checkingАnswerCalc(answerUser, correct)) {
       return;
     }
   }

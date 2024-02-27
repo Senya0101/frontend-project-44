@@ -1,6 +1,6 @@
 import userName from '../../brain-games.js';
 
-const checkingАnswer = (userAnswer, correct) => {
+const checkingАnswerEven = (userAnswer, correct) => {
   if (userAnswer.toLowerCase() === correct.toLowerCase()) {
     console.log('Correct!');
     return true;
@@ -10,4 +10,4 @@ const checkingАnswer = (userAnswer, correct) => {
   return false;
 };
 
-export default checkingАnswer;
+export default checkingАnswerEven;

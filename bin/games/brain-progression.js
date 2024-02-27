@@ -2,7 +2,7 @@
 import readlineSync from 'readline-sync';
 import userName from '../brain-games.js';
 import randomProgression from './logic/randomProgression.js';
-import checkingАnswer from './logic/progressionCheckingАnswer.js';
+import checkingАnswerProgression from './logic/progressionCheckingАnswer.js';
 
 const playProgressionGame = () => {
   console.log('What number is missing in the progression?');
@@ -11,7 +11,7 @@ const playProgressionGame = () => {
     const { progression, hiddenNumber } = randomProgression();
     console.log('Question:', progression.join(' '));
     const userAnswer = Number(readlineSync.question('Your answer: '));
-    if (checkingАnswer(userAnswer, hiddenNumber)) {
+    if (checkingАnswerProgression(userAnswer, hiddenNumber)) {
       correctAnswer += 1;
     } else {
       break;
