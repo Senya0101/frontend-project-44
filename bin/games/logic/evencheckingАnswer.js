@@ -1,7 +1,7 @@
 import userName from '../../brain-games.js';
 
 const checkingАnswerEven = (userAnswer, correct) => {
-  if (userAnswer.toLowerCase() === correct.toLowerCase()) {
+  if (userAnswer === correct) {
     console.log('Correct!');
     return true;
   }
