@@ -9,10 +9,10 @@ const playCalcGame = () => {
   console.log('What is the result of the expression?');
   for (let i = 0; i < 3; i += 1) {
     const expression = randomExpression();
+    const correctAnswer = calculate(expression).toString();
     console.log(`Question: ${expression}`);
     const answerUser = readlineSync.question('Your answer: ');
-    const correct = calculate(expression).toString();
-    if (!checkingАnswer(answerUser, correct)) {
+    if (!checkingАnswer(answerUser, correctAnswer)) {
       return;
     }
   }

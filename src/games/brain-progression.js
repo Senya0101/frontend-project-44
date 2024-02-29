@@ -6,18 +6,18 @@ import checkingАnswer from './logic/checkingАnswer.js';
 
 const playProgressionGame = () => {
   console.log('What number is missing in the progression?');
-  let correctAnswer = 0;
+  let correctCount = 0;
   for (let count = 0; count < 3; count += 1) {
     const { progression, hiddenNumber } = randomProgression();
     console.log('Question:', progression.join(' '));
     const userAnswer = Number(readlineSync.question('Your answer: '));
     if (checkingАnswer(userAnswer, hiddenNumber)) {
-      correctAnswer += 1;
+      correctCount += 1;
     } else {
-      break;
+      return;
     }
   }
-  if (correctAnswer === 3) {
+  if (correctCount === 3) {
     console.log(`Congratulations, ${userName}!`);
   }
 };
