@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import userName from '../brain-games.js';
+import userName from '../../bin/brain-games.js';
 import generateRandomNumber from './logic/randomNumberGeneration.js';
 import isPrime from './logic/isPrime.js';
 import checkingАnswer from './logic/checkingАnswer.js';

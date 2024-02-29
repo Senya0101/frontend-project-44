@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import userName from '../brain-games.js';
+import userName from '../../bin/brain-games.js';
 import calculate from './logic/calc2.js';
-import checkingАnswer from './logic/checkingАnswer.js';
 import randomExpression from './logic/calculate.js';
+import checkingАnswer from './logic/checkingАnswer.js';
 
 const playCalcGame = () => {
   console.log('What is the result of the expression?');

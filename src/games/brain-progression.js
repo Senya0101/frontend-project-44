@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import userName from '../brain-games.js';
+import userName from '../../bin/brain-games.js';
 import randomProgression from './logic/randomProgression.js';
 import checkingАnswer from './logic/checkingАnswer.js';
 

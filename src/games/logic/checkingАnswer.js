@@ -1,4 +1,4 @@
-import userName from '../../brain-games.js';
+import userName from '../../../bin/brain-games.js';
 
 const checkingАnswer = (userAnswer, correct) => {
   if (userAnswer === correct) {
