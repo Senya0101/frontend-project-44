@@ -12,9 +12,8 @@ const playGcdGame = () => {
     const num2 = generateRandomNumber();
     const correctA = gcd(num1, num2);
     console.log(`Question: ${num1} ${num2}`);
-    const userAnswer = readlineSync.question('Your answer: ');
-    const numUserAnswer = Number(userAnswer);
-    if (!checkingАnswer(numUserAnswer, correctA)) {
+    const userAnswer = Number(readlineSync.question('Your answer: '));
+    if (!checkingАnswer(userAnswer, correctA)) {
       return;
     }
   }
