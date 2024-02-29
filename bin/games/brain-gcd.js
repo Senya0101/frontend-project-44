@@ -13,7 +13,8 @@ const playGcdGame = () => {
     const correctA = gcd(num1, num2);
     console.log(`Question: ${num1} ${num2}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (!checkingАnswer(userAnswer, correctA)) {
+    const numUserAnswer = Number(userAnswer);
+    if (!checkingАnswer(numUserAnswer, correctA)) {
       return;
     }
   }
