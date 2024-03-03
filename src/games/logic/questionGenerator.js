@@ -7,41 +7,47 @@ import randomExpression from './calculate.js';
 import calculate from './calc2.js';
 
 const questionGenerator = (gameType) => {
+  let question;
+  let correct;
+
   switch (gameType) {
     case 'gcd': {
       const num1 = generateRandomNumber(20);
       const num2 = generateRandomNumber(20);
-      console.log(`Question: ${num1} ${num2}`);
-      const correct = gcd(num1, num2);
-      return correct;
+      question = `Question: ${num1} ${num2}`;
+      correct = gcd(num1, num2);
+      break;
     }
     case 'even': {
       const randomNumber = generateRandomNumber(25);
-      console.log(`Question: ${randomNumber}`);
-      const correct = isEven(randomNumber) ? 'yes' : 'no';
-      return correct;
+      question = `Question: ${randomNumber}`;
+      correct = isEven(randomNumber) ? 'yes' : 'no';
+      break;
     }
     case 'calc': {
       const expression = randomExpression();
-      console.log(`Question: ${expression}`);
-      const correct = calculate(expression);
-      return correct;
+      question = `Question: ${expression}`;
+      correct = calculate(expression);
+      break;
     }
     case 'prime': {
       const primeNumber = generateRandomNumber(20);
-      console.log(`Question: ${primeNumber}`);
-      const correct = isPrime(primeNumber) ? 'yes' : 'no';
-      return correct;
+      question = `Question: ${primeNumber}`;
+      correct = isPrime(primeNumber) ? 'yes' : 'no';
+      break;
     }
     case 'progression': {
       const { progression, hiddenNumber } = randomProgression();
-      console.log('Question:', progression.join(' '));
-      const correct = hiddenNumber;
-      return correct;
+      question = `Question: ${progression.join(' ')}`;
+      correct = hiddenNumber;
+      break;
     }
     default:
       return '';
   }
+
+  console.log(question);
+  return correct;
 };
 
 export default questionGenerator;
