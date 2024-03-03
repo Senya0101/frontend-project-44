@@ -3,22 +3,22 @@ import userName from '../../../bin/brain-games.js';
 import questionGenerator from './questionGenerator.js';
 import checkingАnswer from './checkingАnswer.js';
 
-const getUserAnswer = () => {
-  const userAnswer = readlineSync.question('Your answer: ');
-  const userNumber = Number(userAnswer);
-  return { userAnswer, userNumber };
+const askUserForAnswer = () => {
+  const userInput = readlineSync.question('Your answer: ');
+  const userAnswer = Number(userInput);
+  return { userInput, userAnswer };
 };
 
 const playRounds = (game) => {
-  for (let i = 0; i < 3; i += 1) {
-    const correct = questionGenerator(game);
-    const { userAnswer, userNumber } = getUserAnswer();
+  for (let round = 0; round < 3; round += 1) {
+    const correctAnswer = questionGenerator(game);
+    const { userInput, userAnswer } = askUserForAnswer();
 
-    if (!Number.isNaN(userNumber)) {
-      if (!checkingАnswer(userNumber, correct)) {
+    if (!Number.isNaN(userAnswer)) {
+      if (!checkingАnswer(userAnswer, correctAnswer)) {
         return;
       }
-    } else if (!checkingАnswer(userAnswer, correct)) {
+    } else if (!checkingАnswer(userInput, correctAnswer)) {
       return;
     }
   }
